@@ -6,7 +6,7 @@ A number guessing game for use on any operating system.
 
 Learning to code... 
 
-The ultimate goal is to build a cross platform number guessing game using c++
+The ultimate goal is to build a cross platform number guessing game using C++.
 
 Some other goals that come to mind for a good number guessing game - To be added as my knowledge of programming expands.
  - 2 player game or maybe even an X amount of players.
