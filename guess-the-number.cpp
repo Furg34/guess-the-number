@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include<iostream>
 #include<string>
+#include<conio.h>
 using namespace std;
 
 /*
@@ -20,7 +21,6 @@ Compete in a best of 5 series.
 Toss a coin to see who goes first.
 */
 
-
 int main()
 {
 
@@ -30,7 +30,7 @@ int main()
 	string player2;
 	int aiHum;
 
-	cout << "Hello and welcome to another edition of Guess-THE-Number \n \n";
+	cout << "Hello and welcome to another edition of... \n \n Guess-THE-Number \n \n";
 	cout << "Enter your name\n";
 	cin >> player1;										//Player 1 Name
 	cout << "Thank you " << player1 << ". Let's get started!\n \n";
@@ -47,13 +47,13 @@ int main()
 
 		switch (difficulty)
 		{
-		case 1: cout << "Computer set to Easy\n";
+		case 1: cout << "Computer set to Easy.\n";
 			break;
-		case 2: cout << "Computer set to Normal\n";
+		case 2: cout << "Computer set to Normal.\n";
 			break;
-		case 3: cout << "Computer set to Hard\n";
+		case 3: cout << "Computer set to Hard.\n";
 			break;
-		default: cout << "Computer difficulty not selected\n";
+		default: cout << "Computer difficulty not selected.\n";
 			break;
 		}
 	}
@@ -61,25 +61,59 @@ int main()
 	{
 		cout << "You've brought a friend!  What is their name?\n";
 		cin >> player2;
-		cout << "Let's welcome " << player2 << " to the game!\n";
+		cout << "\n Let's welcome " << player2 << " to the game!\n";
 	}
 	else
 	{
-		cout << "You have not made a valid selection\n";
+		cout << "You have not made a valid selection.\n";
 	}
 
 	//The Game
 
 	int selectedNumber;
 	int guessedNumber;
+	int guessAttempts;
 
-	//Computer Generated Number
 	
-	//Player selects number to be guessed
-	cout << "Please select a number";
-	cin >> selectedNumber;
+	if (aiHum == 1)		//Playing VS Computer
+	{
+		cout << "Computer is selecting a number between 1 and 100.\n";
+	}
 
 
+	if (aiHum == 2)		//Playing VS Player
+	{
+		guessedNumber = 0;
+		guessAttempts = 0;
+
+		cout << player1 << ", please choose a number between 1 and 100\n \n";  //Playing VS Player
+		cin >> selectedNumber;
+		do
+		{
+			cout << player2 << ", make a guess\n \n";
+			cin >> guessedNumber;
+			
+				
+			if (guessedNumber > selectedNumber)
+			{
+				cout << "Too high, guess lower\n \n";
+				guessAttempts++;
+			}
+
+			if (guessedNumber < selectedNumber)
+			{
+				cout << "Too Low, guess higher\n \n";
+				guessAttempts++;
+			}		
+			if (guessedNumber == selectedNumber)
+			{
+				cout << "Congratulations\n \n";
+				cout << player2 << ", you guessed " << guessedNumber << " which matches " << player1 << "'s selected number\n \n";
+			}
+		} while (selectedNumber != guessedNumber);
+
+	cout << "It took you " << guessAttempts <<" attempts \n";
+	}
 
 	system("pause");
     return 0;
