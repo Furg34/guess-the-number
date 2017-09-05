@@ -1,6 +1,7 @@
 // guess-the-number.cpp : Defines the entry point for the console application.
 //
 #ifndef LINUX
+#include <conio.h>
 #include "stdafx.h"
 #endif
 
@@ -10,7 +11,6 @@
 
 #include <iostream>
 #include <string>
-#include<conio.h>
 
 using namespace std;
 
@@ -35,7 +35,7 @@ int main()
 
 	string player1;
 	string player2;
-	int aiHum;
+	int aiHum;   // 1 = computer, 2 = human
 
 	cout << "Hello and welcome to another edition of... \n \n Guess-THE-Number \n \n";
 	cout << "Enter your name\n";
@@ -116,13 +116,15 @@ int main()
 			{
 				cout << "Congratulations\n \n";
 				cout << player2 << ", you guessed " << guessedNumber << " which matches " << player1 << "'s selected number\n \n";
+				guessAttempts++;
 			}
 		} while (selectedNumber != guessedNumber);
 
-	cout << "It took you " << guessAttempts <<" attempts \n";
+	cout << "It took you " << guessAttempts <<" guesses. \n";
 	}
-
+#ifndef LINUX
 	system("pause");
+#endif
     return 0;
 }
 
