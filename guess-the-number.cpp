@@ -1,9 +1,15 @@
 // guess-the-number.cpp : Defines the entry point for the console application.
 //
-
+#ifndef LINUX
 #include "stdafx.h"
-#include<iostream>
-#include<string>
+#endif
+
+#ifdef LINUX
+#include <stdlib.h>
+#endif
+
+#include <iostream>
+#include <string>
 using namespace std;
 
 /*
